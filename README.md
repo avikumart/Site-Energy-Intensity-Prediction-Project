@@ -12,4 +12,16 @@ The dataset consists of building characteristics, weather data for the location 
 You are provided with two datasets: (1) the train\_dataset where the observed values of the Site EUI for each row are provided and (2) the x\_test dataset the observed values of the Site EUI for each row are removed and provided separately in y\_test. Your task is to predict the Site EUI for each row (using the complete training dataset), given the characteristics of the building and the weather data for the location of the building. Use the test sets for validation and testing. The target variable  is `site_eui` for the predictive analytics problem.
 
 **Evaluation Metric:** Root Mean Squared Error (RMSE)
+
+## Tasks and techniques used:
+
+**1. Data Understanding:**
+- EDA to visualize numerical features relations with target variable
+- Heatmap to visualize multicollinear variables
+- Calculated Variance Inflation factors(VIF) using statsmdodels library
+- Used scatteplot for bivariate analysis
+
+**2. Data Preparation:**
+
+
 ----------------------
