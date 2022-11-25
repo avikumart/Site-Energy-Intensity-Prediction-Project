@@ -21,7 +21,30 @@ You are provided with two datasets: (1) the train\_dataset where the observed va
 - Calculated Variance Inflation factors(VIF) using statsmdodels library
 - Used scatteplot for bivariate analysis
 
-**2. Data Preparation:**
+**Results:**
+- 6 Columns are having missing values
+- Energy intensity means usage of electricity and heat (The more the use, more the intensity of energy and CO2 emmissions per building)
+- Bulding characteristics and energy usage over a period of year is given (Every Month's Min, Max and Mean)
+- Samples are from various of states of USA
+- We need to check relations between site conditions and usage of energy
 
+**2. Data Preparation:**
+- Handled missing values using `fillna()` method with mean and mode of features
+- Calculated Variation inflation factors(VIFs) to handle multicollinear columns and remove most correlated columns
+- Feature engineering to aggregate the existing columns to reduce dimentionality of dataset
+- Calculated VIFs using statamodels library
+
+**Results:**
+- Reduced columns from 56 to 17 to build baseline model using `XGB` and `RF` baseline
+
+**3. Modeling and evaluation**
+- Built base machine learning models using XGBoostand RandomForest Regressors
+- Modeling with functional programming in python
+- Evaluation metric - Root Mean Squared Error (RMSE)
+- Hyperparameter tuning using gridserchCV
+
+**Results:**
+- Baseline score on test dataset using XGBoost model was 49 and 50 for RF model
+- Tuned model brought `RMSE score to 46` 
 
 ----------------------
