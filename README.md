@@ -48,3 +48,11 @@ You are provided with two datasets: (1) the train\_dataset where the observed va
 - Tuned model brought `RMSE score to 46` 
 
 ----------------------
+
+**Acknowledgement:** ***TMLC Academy***
+
+**References:**
+
+1. [11 Dimensionality reduction techniques](https://towardsdatascience.com/11-dimensionality-reduction-techniques-you-should-know-in-2021-dcb9500d388b)
+
+
