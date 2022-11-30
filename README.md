@@ -47,6 +47,13 @@ You are provided with two datasets: (1) the train\_dataset where the observed va
 - Baseline score on test dataset using XGBoost model was 49 and 50 for RF model
 - Tuned model brought `RMSE score to 46` 
 
+**4. Explainable AI using SHAP**
+- Used Shaply values to learn interaction of inputs with the outputs
+- Plotted features shap values charts
+
+**Results:**
+- From summary plots it was found `energy_star_rating` and `floor_area` feature were the most imporatant to predict model output.
+
 ----------------------
 
 **Acknowledgement:** ***TMLC Academy***
