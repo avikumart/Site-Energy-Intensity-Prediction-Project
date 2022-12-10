@@ -2,3 +2,7 @@ streamlit
 pandas
 numpy
 joblib
+Pillow
+shap
+ipython
+matplotlib
