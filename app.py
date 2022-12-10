@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import shap
 from IPython import get_ipython
 from PIL import Image
+import xgboost
 
 st.set_page_config(
     page_title="Site Energy Usage Intensity Prediction",
