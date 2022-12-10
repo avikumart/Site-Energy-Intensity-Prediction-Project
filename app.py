@@ -26,7 +26,7 @@ feature_list = ['floor_area', 'energy_star_rating', 'ELEVATION', 'cooling_degree
     'Avg_min_temp_summer', 'Avg_max_temp_summer', 'Avg_temp_summer',
     'Avg_days_below30F']
 
-model = joblib.load("Site-Energy-Intensity-Prediction-Project\Models\eui_model.joblib")
+model = joblib.load("./Models/eui_model.joblib")
 
 # UI for single and batch prediction using streamlit expander
 
@@ -89,7 +89,7 @@ def display_shap_from_batch(df, name):
 def main():
     # main inputs
     st.write("")
-    image = Image.open("Site-Energy-Intensity-Prediction-Project\Images\examples-renewable-energy-wind-solar-biomass-geothermal.jpg")
+    image = Image.open("./Images/examples-renewable-energy-wind-solar-biomass-geothermal.jpg")
     
     p,q,r = st.columns(3)
     with q:
