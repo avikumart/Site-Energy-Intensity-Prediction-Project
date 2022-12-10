@@ -27,6 +27,8 @@ feature_list = ['floor_area', 'energy_star_rating', 'ELEVATION', 'cooling_degree
     'Avg_min_temp_summer', 'Avg_max_temp_summer', 'Avg_temp_summer',
     'Avg_days_below30F']
 
+# https://xgboost.readthedocs.io/en/latest/tutorials/saving_model.html  (for model saving)
+
 model = joblib.load("./Models/eui_model.joblib")
 
 # UI for single and batch prediction using streamlit expander
