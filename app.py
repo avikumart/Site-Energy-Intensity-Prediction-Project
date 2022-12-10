@@ -105,6 +105,11 @@ def main():
             floor_area = st.number_input("Floor area", step=1)
             star_ratings = st.number_input("Energy star ratings", step=1)
             elevation = st.number_input("Elevation of a building", step=1)
+            
+            image2 = Image.open("./Images/Explain-scientific-solutions-to-help-industries-reduce-their-energy-consumption.webp")
+            st.write(" ")
+            st.image(image2)
+            st.write(" ")
         with y:
             st.header("Site weather conditions")
             cdd = st.number_input('Cooling degree days', step=1)
@@ -115,11 +120,11 @@ def main():
             days_above_100F = st.number_input('Days above 100F', step=1)
             max_wind_speed = st.number_input('Max wind speed', step=1)
             days_with_fog = st.number_input('Days with fog', step=1)
-            avg_min_winter = st.slider('Average min winter temp(in F)', 0,100,step=1)
+            avg_min_winter = st.slider('Average min winter temp(in F)',0,100,step=1)
             avg_max_winter = st.slider('Average max winter temp(in F)', 0,100,step=1)
             avg_winter = st.slider('Average winter temp(in F)', 0,100,step=1)
             avg_min_sum = st.slider('Average min summer temp(in F)', 0,100,step=1)
-            avg_max_sum = st.slider('Average min summer temp(in F)', 0,100,step=1)
+            avg_max_sum = st.slider('Average max summer temp(in F)', 0,100,step=1)
             avg_sum = st.slider('Average summer temp(in F)', 0,100,step=1)
             avg_days_b30F = st.slider('Average days below 30F', 0,100,step=1)
         
