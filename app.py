@@ -39,12 +39,12 @@ def batch_prediction(df):
     st.success("Results sucessfully generated!")
     _, x2, x3, _ = st.columns([0.1, 0.4, 0.4, 0.1], gap = 'medium')
     with x2:
-        st.markdown("<h4 style='text-align: left; color: #4f4f4f;'>Site EUI Predictions</h4>",
+        st.markdown("<h4 style='text-align: left; color: #e3a740;'>Site EUI Predictions</h4>",
                 unsafe_allow_html = True)
         st.dataframe(pred_df)
     
     with x3:
-        st.markdown("<h4 style='text-align: left; color: #4f4f4f;'>Sorted EUI Predictions</h4>",
+        st.markdown("<h4 style='text-align: left; color: #e3a740;'>Sorted EUI Predictions</h4>",
                 unsafe_allow_html = True)
         sorted_df = pred_df.sort_values(by='EUI_prediction', ascending=False)
         st.dataframe(sorted_df)
@@ -54,7 +54,7 @@ def batch_prediction(df):
         
 
 def single_explainer(features_val):
-    st.markdown("<h5 style='text-align: center; padding: 12px;color: #4f4f4f;'>Model Explanation : XAI (Explainable AI)</h5>",
+    st.markdown("<h5 style='text-align: center; padding: 12px;color: #e3a740;'>Model Explanation : XAI (Explainable AI)</h5>",
                             unsafe_allow_html = True)  
     svalues = np.array(features_val).reshape(1,-1)  
     shap.initjs()
@@ -64,7 +64,7 @@ def single_explainer(features_val):
 def batch_explainer(df):
     y1, y2, y3 = st.columns([0.1, 0.8, 0.1])
     with y2:
-        st.markdown("<h4 style='text-align: center; padding: 12px;color: #4f4f4f;'>Model Explanation : XAI (Explainable AI)</h4>",
+        st.markdown("<h4 style='text-align: center; padding: 12px;color: #e3a740;'>Model Explanation : XAI (Explainable AI)</h4>",
                     unsafe_allow_html = True)
         # summary plot
         shap_values = shap.TreeExplainer(model).shap_values(df)
@@ -86,7 +86,7 @@ def main():
     # main inputs
     heading = '''
                 <div> 
-                <h1 style ="color:#4f4f4f;text-align:center;padding:25px;">Site Energy Intensity Prediction App</h1> 
+                <h1 style ="color:#db9112;text-align:center;padding:25px;">Site Energy Intensity Prediction App</h1> 
                 </div> 
             '''
     st.markdown(heading, unsafe_allow_html = True)
@@ -95,7 +95,7 @@ def main():
     
     p,q,r = st.columns(3)
     with q:
-        st.image(image, caption="green building image")
+        st.image(image, caption="Green Building Image")
         
     st.write(" ")
     
@@ -143,16 +143,19 @@ def main():
         features_values = [floor_area,star_ratings,elevation,cdd,hdd,precipitation,snowfall,days_above_80F,
                         days_above_100F,max_wind_speed,days_with_fog,avg_min_winter,
                         avg_max_winter,avg_winter,avg_min_sum,avg_max_sum,avg_sum,avg_days_b30F]
-        
-        result = single_prediction(features_values)
-        st.write("Click below to predit site EUI")
-        
-        if st.button("Predict"):
-            st.markdown(f"**Site energy usage intensity is {result}**")
+        lst = []
+        for i in features_values[:11]:
+            if i != 0:
+                lst.append(True)
+        if False not in lst:
+            result = single_prediction(features_values)
+            st.write("Click below to predit site EUI")
+            if st.button("Predict"):
+                st.markdown(f"**Site energy usage intensity is {result}**")
+                
+                single_explainer(features_values)
             
-            single_explainer(features_values)
-            
-    with st.expander("Batch of sites preidiction"):
+    with st.expander("Batch of site prediction"):
         uploader = st.file_uploader("Upload the batch of sites datasheet")
         if uploader:
             df = pd.read_excel(uploader)
@@ -160,7 +163,7 @@ def main():
             names = tuple(df['name'])
             
             st.write(" ")
-            st.markdown("<h4 style='text-align: center; padding: 12px;color: #4f4f4f;'>Single Patient Model Explanation</h4>",
+            st.markdown("<h4 style='text-align: center; padding: 12px;color: #e3a740;'>Single Patient Model Explanation</h4>",
                         unsafe_allow_html = True)
             single_patient = st.selectbox('Select Patient', names)
             st.write(" ")
@@ -176,5 +179,4 @@ if __name__=='__main__':
             [Linkedin](https://www.linkedin.com/in/avi-kumar-talaviya-739153147/) |
             [Kaggle](https://www.kaggle.com/avikumart) 
             """)
-    
     
