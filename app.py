@@ -22,7 +22,8 @@ feature_list = ['floor_area', 'energy_star_rating', 'ELEVATION', 'cooling_degree
 
 # https://xgboost.readthedocs.io/en/latest/tutorials/saving_model.html  (for model saving)
 
-model = xgb.train.from_json("./Models/site_eui_model.json")
+model = xgb.XGBRegressor()
+model.load_model("site_eui_model.json")
 
 # UI for single and batch prediction using streamlit expander
 
