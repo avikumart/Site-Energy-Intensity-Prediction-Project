@@ -1,13 +1,12 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-import json
 import joblib
 import matplotlib.pyplot as plt
 import shap
 from IPython import get_ipython
 from PIL import Image
-import xgboost as xgb
+import xgboost 
 from styles import *
 
 streamlit_style()
@@ -22,7 +21,8 @@ feature_list = ['floor_area', 'energy_star_rating', 'ELEVATION', 'cooling_degree
 
 # https://xgboost.readthedocs.io/en/latest/tutorials/saving_model.html  (for model saving)
 
-model = xgb.Booster().load_model("./Models/site_eui_model.json")
+#model = xgb.Booster().load_model("./Models/site_eui_model.json")
+model = joblib.load("./Models/eui_model.joblib")
 
 # UI for single and batch prediction using streamlit expander
 
