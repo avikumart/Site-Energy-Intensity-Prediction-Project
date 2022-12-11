@@ -143,10 +143,8 @@ def main():
         features_values = [floor_area,star_ratings,elevation,cdd,hdd,precipitation,snowfall,days_above_80F,
                         days_above_100F,max_wind_speed,days_with_fog,avg_min_winter,
                         avg_max_winter,avg_winter,avg_min_sum,avg_max_sum,avg_sum,avg_days_b30F]
-        lst = []
-        for i in features_values[:11]:
-            if i != 0:
-                lst.append(1)
+    
+        lst = [1 for i in features_values[:11] if i != 0]
                 
         if 0 in lst:
             st.write("Please enter the correct input values")
