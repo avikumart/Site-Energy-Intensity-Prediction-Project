@@ -147,7 +147,9 @@ def main():
         for i in features_values[:11]:
             if i != 0:
                 lst.append(True)
-        if False not in lst:
+        if False in lst:
+            st.write("Please enter the correct input values")
+        else:
             result = single_prediction(features_values)
             st.write("Click below to predit site EUI")
             if st.button("Predict"):
