@@ -6,4 +6,4 @@ Pillow
 shap
 ipython
 matplotlib
-xgboost
+xgboost==1.6.2
