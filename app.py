@@ -113,10 +113,9 @@ def main():
             st.write(" ")
             st.markdown("""
                         <div> 
-                <h5 style ="color:#4f4f4f;text-align:center;padding:25px;">Save energy, 
-                Save earth</h5> 
+                        <h5 style ="color:#4f4f4f;text-align:center;padding:25px;">Save energy, Save earth</h5> 
                         </div> 
-                        """)
+                        """, unsafe_allow_html = True)
         with y:
             st.header("Site weather conditions")
             cdd = st.number_input('Cooling degree days', step=1)
