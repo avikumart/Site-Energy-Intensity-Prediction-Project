@@ -153,7 +153,7 @@ def main():
             result = single_prediction(features_values)
             st.write("Click below to predit site EUI")
             if st.button("Predict"):
-                st.markdown(f"**Site energy usage intensity is {result}**")
+                st.markdown(f"**Site energy usage intensity is {result}** units")
                 
                 single_explainer(features_values)
             
