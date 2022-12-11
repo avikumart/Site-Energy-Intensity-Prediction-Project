@@ -1,23 +1,16 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import json
 import joblib
 import matplotlib.pyplot as plt
 import shap
 from IPython import get_ipython
 from PIL import Image
-import xgboost
+import xgboost as xgb
+from styles import *
 
-st.set_page_config(
-    page_title="Site Energy Usage Intensity Prediction",
-    page_icon="⚡",
-    layout="centered",
-    menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is an site energy intensity prediction application made by Avi Kumar Talaviya"
-    }
-)
+streamlit_style()
 
 # feature list for prediction
 feature_list = ['floor_area', 'energy_star_rating', 'ELEVATION', 'cooling_degree_days',
@@ -29,7 +22,7 @@ feature_list = ['floor_area', 'energy_star_rating', 'ELEVATION', 'cooling_degree
 
 # https://xgboost.readthedocs.io/en/latest/tutorials/saving_model.html  (for model saving)
 
-model = joblib.load("./Models/eui_model.joblib")
+model = xgb.Booster.load_model("./Models/site_eui_model.json")
 
 # UI for single and batch prediction using streamlit expander
 
@@ -91,12 +84,18 @@ def display_shap_from_batch(df, name):
 
 def main():
     # main inputs
+    heading = '''
+                <div> 
+                <h1 style ="color:#4f4f4f;text-align:center;padding:25px;">Site Energy Intensity Prediction App</h1> 
+                </div> 
+            '''
+    st.markdown(heading, unsafe_allow_html = True)
     st.write("")
     image = Image.open("./Images/examples-renewable-energy-wind-solar-biomass-geothermal.jpg")
     
     p,q,r = st.columns(3)
     with q:
-        st.image(image)
+        st.image(image, caption="green building image")
         
     st.write(" ")
     
@@ -112,6 +111,12 @@ def main():
             st.write(" ")
             st.image(image2)
             st.write(" ")
+            st.markdown("""
+                        <div> 
+                <h5 style ="color:#4f4f4f;text-align:center;padding:25px;">Save energy, 
+                Save earth</h5> 
+                        </div> 
+                        """)
         with y:
             st.header("Site weather conditions")
             cdd = st.number_input('Cooling degree days', step=1)
@@ -166,3 +171,11 @@ def main():
                 
 if __name__=='__main__': 
     main()
+    
+    st.write("Developed By: Avi kumar Talaviya")
+    st.markdown("""Reach out to me on: [Twitter](https://twitter.com/avikumart_) |
+            [Linkedin](https://www.linkedin.com/in/avi-kumar-talaviya-739153147/) |
+            [Kaggle](https://www.kaggle.com/avikumart) 
+            """)
+    
+    
