@@ -13,7 +13,9 @@ You are provided with two datasets: (1) the train\_dataset where the observed va
 
 **Evaluation Metric:** Root Mean Squared Error (RMSE)
 
-## Web application: [Click Here](https://site-energy-usage-prediction.streamlit.app/)
+## Web application:
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://site-energy-usage-prediction.streamlit.app/)
 
 ## Tasks and techniques used:
 
