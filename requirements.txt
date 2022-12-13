@@ -7,3 +7,4 @@ shap
 ipython
 matplotlib
 xgboost==1.6.2
+openpyxl

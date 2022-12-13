@@ -8,6 +8,7 @@ from IPython import get_ipython
 from PIL import Image
 import xgboost 
 from styles import *
+import openpyxl
 
 streamlit_style()
 
