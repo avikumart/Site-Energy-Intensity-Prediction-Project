@@ -82,24 +82,42 @@ def display_shap_from_batch(df, name):
     shap.initjs()              
     shap_values = shap.TreeExplainer(model).shap_values(res)              
     st.pyplot(shap.force_plot(shap.TreeExplainer(model).expected_value[0], shap_values[0], res, matplotlib=True,show=False))
+    
+# main inputs
+heading = '''
+            <div> 
+            <h1 style ="color:#db9112;text-align:center;padding:25px;">Site Energy Intensity Prediction App</h1> 
+            </div> 
+        '''
+st.markdown(heading, unsafe_allow_html = True)
+st.write("")
+image = Image.open("./Images/examples-renewable-energy-wind-solar-biomass-geothermal.jpg")
+    
+p,q,r = st.columns([0.2,0.6,0.2])
+with q:
+    st.image(image, caption="Green Building Image")       
+st.write(" ")
+
+st.markdown("""
+            ### **Description:** 
+According to a report issued by the International Energy Agency (IEA), the lifecycle of buildings from construction to demolition was responsible for 37% of global energy-related and process-related CO2 emissions in 2020. 
+Yet it is possible to drastically reduce the energy consumption of buildings by a combination of easy-to-implement fixes and state-of-the-art strategies. 
+The dataset consists of building characteristics, weather data for the location of the building, as well as the energy usage for the building, and the given year, measured as Site Energy Usage Intensity (Site EUI). 
+Each row in the data corresponds to a single building observed in a given year.
+
+### Source of dataset & data dictionary - [Click Here](https://www.kaggle.com/c/widsdatathon2022/data)
+
+### **Problem Statement:** 
+You are provided with two datasets: (1) the train\_dataset where the observed values of the Site EUI for each row are provided and 
+(2) the x\_test dataset the observed values of the Site EUI for each row are removed and provided separately in y\_test. 
+Your task is to predict the Site EUI for each row (using the complete training dataset), given the characteristics of the building and the weather data for the location of the building. 
+Use the test sets for validation and testing. The target variable  is `site_eui` for the predictive analytics problem.
+
+**Evaluation Metric:** Root Mean Squared Error (RMSE)
+            
+            """)
 
 def main():
-    # main inputs
-    heading = '''
-                <div> 
-                <h1 style ="color:#db9112;text-align:center;padding:25px;">Site Energy Intensity Prediction App</h1> 
-                </div> 
-            '''
-    st.markdown(heading, unsafe_allow_html = True)
-    st.write("")
-    image = Image.open("./Images/examples-renewable-energy-wind-solar-biomass-geothermal.jpg")
-    
-    p,q,r = st.columns(3)
-    with q:
-        st.image(image, caption="Green Building Image")
-        
-    st.write(" ")
-    
     with st.expander("Site EUI prediction"):
         x, y = st.columns(2, gap='medium')
         with x:
