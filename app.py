@@ -134,27 +134,27 @@ def main():
             avg_sum = st.slider('Average summer temp(in F)', 0,100,step=1)
             avg_days_b30F = st.slider('Average days below 30F', 0,100,step=1)
         
-        features_names = ['floor_area', 'energy_star_rating', 'ELEVATION', 'cooling_degree_days',
+    features_names = ['floor_area', 'energy_star_rating', 'ELEVATION', 'cooling_degree_days',
                         'heating_degree_days', 'precipitation_inches', 'snowfall_inches',
                         'days_above_80F', 'days_above_100F', 'max_wind_speed', 'days_with_fog',
                         'Avg_min_temp_winter', 'Avg_max_temp_winter', 'Avg_temp_winter',
                         'Avg_min_temp_summer', 'Avg_max_temp_summer', 'Avg_temp_summer',
                         'Avg_days_below30F']
-        features_values = [floor_area,star_ratings,elevation,cdd,hdd,precipitation,snowfall,days_above_80F,
+    features_values = [floor_area,star_ratings,elevation,cdd,hdd,precipitation,snowfall,days_above_80F,
                         days_above_100F,max_wind_speed,days_with_fog,avg_min_winter,
                         avg_max_winter,avg_winter,avg_min_sum,avg_max_sum,avg_sum,avg_days_b30F]
     
-        lst = [1 for i in features_values[:11] if i != 0]
+    lst = [1 for i in features_values[:11] if i != 0]
                 
-        if 0 in lst:
-            st.write("Please enter the correct input values")
-        else:
-            result = single_prediction(features_values)
-            st.write("Click below to predict site EUI")
-            if st.button("Predict"):
-                st.markdown(f"**Site energy usage intensity is {result}** units")
+    if 0 in lst:
+        st.write("Please enter the correct input values")
+    else:
+        result = single_prediction(features_values)
+        st.write("Click below to predict site EUI")
+        if st.button("Predict"):
+            st.markdown(f"**Site energy usage intensit: {result}** units")
                 
-                single_explainer(features_values)
+            single_explainer(features_values)
             
     with st.expander("Batch of site prediction"):
         uploader = st.file_uploader("Upload the batch of sites datasheet")
