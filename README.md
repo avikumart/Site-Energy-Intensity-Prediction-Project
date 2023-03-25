@@ -17,6 +17,14 @@ You are provided with two datasets: (1) the train\_dataset where the observed va
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://site-energy-usage-prediction.streamlit.app/)
 
+## Web app screenshots:
+
+![image](https://user-images.githubusercontent.com/88608935/227700373-b30eee6f-4437-474d-81b8-f1b48aeca472.png)
+
+![image](https://user-images.githubusercontent.com/88608935/227700392-bfff4411-b00b-47a9-a636-6c84ce14e8c2.png)
+
+![image](https://user-images.githubusercontent.com/88608935/227700401-74de373e-b2e9-4752-b8f6-d30278bb6647.png)
+
 ## Tasks and techniques used:
 
 **1. Data Understanding:**
