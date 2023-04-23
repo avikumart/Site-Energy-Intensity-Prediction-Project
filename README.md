@@ -17,6 +17,10 @@ You are provided with two datasets: (1) the train\_dataset where the observed va
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://site-energy-usage-prediction.streamlit.app/)
 
+## Published article on Analytics Vidhya:
+
+Article link: [Click Here](https://www.analyticsvidhya.com/blog/2023/04/predicting-site-eui-using-machine-learning/)
+
 ## Web app screenshots:
 
 ![image](https://user-images.githubusercontent.com/88608935/227700373-b30eee6f-4437-474d-81b8-f1b48aeca472.png)
